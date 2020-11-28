@@ -22,7 +22,7 @@ az aks create --name "akslab-k8s" `
                 --enable-cluster-autoscaler `
                 --node-count 1 --min-count 1 --max-count 3 `
                 --node-osdisk-size 30 --node-osdisk-type Ephemeral --node-vm-size Standard_DS2_v2 `
-                --vnet-subnet-id "/subscriptions/da078965-c29e-45e8-98bd-062b43cd30d3/resourceGroups/akslab-rgp/providers/Microsoft.Network/virtualNetworks/akslab-vnet/subnets/akslab-subnet" `
+                --vnet-subnet-id "/subscriptions/<your subscription id>/resourceGroups/akslab-rgp/providers/Microsoft.Network/virtualNetworks/akslab-vnet/subnets/akslab-subnet" `
                 --network-plugin azure `
                 --dns-name-prefix "akslab-k8s" `
                 --docker-bridge-address "172.17.0.1/16" `
