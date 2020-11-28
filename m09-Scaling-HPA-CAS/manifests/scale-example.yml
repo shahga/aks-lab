@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scale-example-v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scale-example
+      version: v1      
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: scale-example
+        version: v1
+    spec:
+      imagePullSecrets:
+      - name: taskapiacrsecret
+      containers:
+      - image: akslabgs.azurecr.io/taskapi-aspnetcore:v1
+        imagePullPolicy: Always
+        name: scale-example
+        resources: {}       
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: scale-example
+  name: scale-example
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: scale-example
+  sessionAffinity: None
+  type: LoadBalancer
