@@ -2,7 +2,7 @@
 # ! Connect to Azure
 # **********************
 az login
-az account set --subscription gsmsdn-sub
+az account set --subscription <your subscription name>
 
 
 # **********************
