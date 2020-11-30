@@ -11,7 +11,7 @@ az monitor log-analytics workspace create --resource-group "akslab-rgp" `
 # ! Enable AKS Monitoring
 az aks enable-addons --name "akslab-k8s" --resource-group "akslab-rgp" `
                         --addons monitoring `
-                        --workspace-resource-id "/subscriptions/da078965-c29e-45e8-98bd-062b43cd30d3/resourcegroups/akslab-rgp/providers/microsoft.operationalinsights/workspaces/akslab-log"
+                        --workspace-resource-id "/subscriptions/<...subscription id...>/resourcegroups/akslab-rgp/providers/microsoft.operationalinsights/workspaces/akslab-log"
 
 
 # ! @@ Multi Cluster Dashboard
